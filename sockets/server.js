@@ -14,7 +14,8 @@ const hexadecimal = () => (Math.floor(Math.random() * 130) + 125).toString(16);
 
 const nuevoColor = () => `#${hexadecimal()}${hexadecimal()}${hexadecimal()}`;
 
-app.use(express.static(`${__dirname}/public`));
+app.use(express.static(path.join(`${__dirname}`,'/..')));
+console.log(path.join(`${__dirname}`,'/..'))
 
 const conexion = async (payload, socket, color) => {
   const idUser = socket.id;

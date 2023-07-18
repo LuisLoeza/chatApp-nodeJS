@@ -4,16 +4,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CHAT</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"/>
-  <link rel="stylesheet" href="./style.css">
+  <title>PRUEBA DE CHAT</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" />
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-  <div class="ancho">
-    <div class="notification">
-      <p>fff</p>
-    </div>
+  <div class="ancho">   
     <div class="header">
       <p>CHAT</p>
     </div>
@@ -29,24 +26,27 @@
     </div>
     <div class="u_conectados_contenedor">
       <div class="u_conectados_contenido">
-        <div id="userConnected" style="display:none;">
+        <div id="userConnected">
         </div>
         <div class="containerChats">
-          <div id="chatGeneral" class="chat general2">
+          <div id="chatGeneral" class="chat textarea contentTab">
           </div>
         </div>
       </div>
       <!-- <div class="infoInput">
       </div> -->
     </div>
+    <div id="notification" class="hide">  
+    </div>
     <div class="enviomsg">
-      <input class="" type="hidden" id="tipoUser" value="userChat">
+      <input type="hidden" name="" id="tipoUser" value="userResponse">
       <input class="" type="text" id="user" placeholder="Usuario">
       <input class="" type="text" id="message" placeholder="Mensaje">
     </div>
   </div>
   <script src="/socket.io/socket.io.js"></script>
-  <script src="./index.js"></script>
+  <script src="index.js"></script>
+  
 </body>
 
 </html>
