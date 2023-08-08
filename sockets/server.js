@@ -67,5 +67,5 @@ io.on('connection', socket => {
 });
 
 server.listen(PUERTO, () => {
-  console.log(`127.0.0.1${puerto()}`);
+  console.log(`http://127.0.0.1${puerto()}`);
 });

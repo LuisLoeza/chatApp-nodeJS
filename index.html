@@ -7,6 +7,9 @@
   <title>PRUEBA DE CHAT</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" />
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="./js/emojionearea.min.css">
+  <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+  <script src="./js/emojionearea.min.js"></script>
 </head>
 
 <body>
@@ -41,12 +44,15 @@
     <div class="enviomsg">
       <input type="hidden" name="" id="tipoUser" value="userResponse">
       <input class="" type="text" id="user" placeholder="Usuario">
-      <input class="" type="text" id="message" placeholder="Mensaje">
+      <input type="text" id="message" placeholder="Escribe un mensaje">
+      <button id="enviar" class="btn_enviar">Enviar</button>
     </div>
+    <!-- <a href="javascript:obtenerMsg()">Mostrar Msg</a> -->
   </div>
   <script src="/socket.io/socket.io.js"></script>
   <script src="index.js"></script>
-  
+  <script>
+  </script>
 </body>
 
 </html>

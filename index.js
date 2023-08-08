@@ -86,7 +86,7 @@ const selectedChat = evt => {
 };
 
 const sendMessage = (evt, status) => {
-  if (evt.key === 'Enter') {
+ // if (evt.key === 'Enter') {
     if (user.value.length >= LENGTH_MIN_USERNAME && message.value.trim().length > EMPTY) {
       const parent = document.querySelectorAll('.tabs a.active')[0].parentElement;
       const content = parent.dataset.content;
@@ -127,20 +127,19 @@ const sendMessage = (evt, status) => {
         messageSend.appendChild(div);
       }
       socket.emit(`mensaje-${isChatGeneral ? 'general' : 'privado'}`, infoMensaje);
-      message.value = '';
       currentlyChat.scrollTo(0, currentlyChat.scrollHeight);
     }
     user.classList[user.value.length >= LENGTH_MIN_USERNAME ? 'remove' : 'add']('has-background-danger');
-  } else {
-    if (user.value.length >= LENGTH_MIN_USERNAME) {
-      if (evt.key !== 'Tab') {
-        socket.emit('write-client', { data: status ? user.value : '' });
-      }else{
-        
-        status = '';
-      }
-    }
-  }
+ // } else {
+  //  if (user.value.length >= LENGTH_MIN_USERNAME) {
+   //   if (evt.key !== 'Tab') {
+   //     socket.emit('write-client', { data: status ? user.value : '' });
+   //   }else{
+   //     
+   //     status = '';
+   //   }
+   // }
+ //}
 };
 
 
@@ -283,8 +282,18 @@ const cargar = () => {
   message = document.querySelector('#message');
   usersPanel = document.querySelector('#userConnected');
   notification = document.querySelector('.notification');
-  message.addEventListener('keypress', evt => sendMessage(evt, true));
-  message.addEventListener('keyup', evt => sendMessage(evt, false));
+  enviar = document.querySelector("#enviar");
+  enviar.addEventListener('click', function(evt) {
+    sendMessage(evt, true);
+  });
+  $(message).emojioneArea({
+    events: {
+        blur: function (editor, evt) {
+          sendMessage(evt, true);
+          this.setText('');
+      }
+   }
+ });
   user.addEventListener('blur', connectedToServer);
   tabGeneral.addEventListener('click', selectedChat);
 };
