@@ -286,7 +286,7 @@ const cargar = () => {
   enviar.addEventListener('click', function(evt) {
     sendMessage(evt, true);
   });
-  $(message).emojioneArea({
+  $("#message").emojioneArea({
     events: {
         blur: function (editor, evt) {
           sendMessage(evt, true);
